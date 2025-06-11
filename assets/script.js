@@ -74,7 +74,7 @@ function createMarkupForMembers(member) {
                   <div class="col">
                     <div class="card">
                         <img src="./assets/${img}" alt="member.img" class="card-img">
-                        <div class="card-body">
+                        <div class="card-body bg-dark text-white">
                             <h3>${name}</h3>
                             <div>
                                 <p>${role}</p>
