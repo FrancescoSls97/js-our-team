@@ -51,25 +51,29 @@ console.log(rowEl); */
 //selezione elemento della DOM
 const rowEl = document.querySelector(".row");
 
-//aggiungere il markup alla DOM
-function showMembersCard(teamMembers) {
+//ciclo for per evidenziare i singoli membri del team
+function member(teamMembers) {
   for (let i = 0; i < teamMembers.length; i++) {
     const member = teamMembers[i];
     /* console.log(member); */
-    const { name, role, image, email } = member;
+    // const { name, role, img, email } = member;
     console.log(member);
-    /*     const memberMarkup = `<li>${name}, ${role}, ${email}, ${image}`;
-    console.log(memberMarkup); */
+    // const memberMarkup = `<li>${name}, ${role}, ${email}, ${image}`;
+    const memberMarkup = createMarkupForMembers(member);
+    /* console.log(memberMarkup); */
+    rowEl.innerHTML += memberMarkup;
   }
 }
+
+member(teamMembers);
 //funzione per creare un markup da inserire in pagina
 
 function createMarkupForMembers(member) {
-  const { name, role, image, email } = member;
+  const { name, role, img, email } = member;
   const memberMarkup = `
                   <div class="col">
                     <div class="card">
-                        <img src="img/${image}" alt="member.img" class="card-img">
+                        <img src="./assets/${img}" alt="member.img" class="card-img">
                         <div class="card-body">
                             <h3>${name}</h3>
                             <div>
@@ -79,4 +83,5 @@ function createMarkupForMembers(member) {
                         </div>
                     </div>
                 </div>`;
+  return memberMarkup;
 }
